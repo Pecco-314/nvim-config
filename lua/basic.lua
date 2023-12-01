@@ -11,8 +11,18 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
+-- 搜索时使用智能大小写
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+-- 禁止自动换行
+vim.opt.wrap = false
+
 -- 光标移动
 vim.opt.whichwrap = "h,l,<,>,[,]"
 
 -- 高亮当前行
 vim.opt.cursorline = true
+
+-- 设置leader
+vim.g.mapleader = " "
