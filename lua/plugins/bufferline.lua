@@ -15,10 +15,10 @@ return {
                 }
             })
             -- 切换缓冲区
-            vim.keymap.set('n', '<C-h>', [[<Cmd>BufferLineCyclePrev<CR>]], opt)
-            vim.keymap.set('n', '<C-l>', [[<Cmd>BufferLineCycleNext<CR>]], opt)
+            vim.keymap.set('n', '<C-h>', [[<Cmd>BufferLineCyclePrev<CR>]], OPTS)
+            vim.keymap.set('n', '<C-l>', [[<Cmd>BufferLineCycleNext<CR>]], OPTS)
             -- 关闭缓冲区
-            vim.keymap.set('n', '<C-w>', [[<Cmd>Bdelete<CR>]], opt)
+            vim.keymap.set('n', '<C-w>', [[<Cmd>Bdelete<CR>]], OPTS)
         end,
     }
 }
