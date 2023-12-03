@@ -52,7 +52,21 @@ vim.keymap.set('i', '<S-Right>', [[<C-o>v<Right>]], OPTS)
 vim.keymap.set('v', '<S-Up>', [[<Up>]], OPTS)
 vim.keymap.set('v', '<S-Down>', [[<Down>]], OPTS)
 vim.keymap.set('v', '<S-Left>', [[<Left>]], OPTS)
-    vim.keymap.set('v', '<S-Right>', [[<Right>]], OPTS)
+vim.keymap.set('v', '<S-Right>', [[<Right>]], OPTS)
 
 -- 全选
 vim.keymap.set('n', '<leader>a', [[gg0vG$]], OPTS)
+
+-- 撤销和重做
+vim.keymap.set('n', '<C-z>', [[u]], OPTS)
+vim.keymap.set('i', '<C-z>', [[<C-o>u]], OPTS)
+vim.keymap.set('i', '<C-r>', [[<C-o><C-r>]], OPTS)
+
+-- 复制粘贴
+vim.keymap.set('n', '<C-v>', [["+p]], OPTS)
+vim.keymap.set('i', '<C-v>', [[<C-o>"+p]], OPTS)
+vim.keymap.set('v', '<C-c>', [["+y]], OPTS)
+vim.keymap.set('v', '<C-x>', [["+x]], OPTS)
+
+-- 删除单词
+vim.keymap.set('i', '<C-h>', [[<C-o>db]], OPTS)
