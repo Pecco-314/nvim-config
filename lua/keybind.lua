@@ -30,7 +30,7 @@ vim.keymap.set('i', '<C-s>', [[<Cmd>update<CR><esc>]], OPTS)
 vim.keymap.set('v', '<C-s>', [[<Cmd>update<CR><esc>]], OPTS)
 
 -- 关闭搜索高亮
-vim.keymap.set('n', '<leader>n', [[<Cmd>nohlsearch<CR>]], OPTS)
+vim.keymap.set('n', '<Backspace>', [[<Cmd>nohlsearch<CR>]], OPTS)
 
 -- tab缩进
 vim.keymap.set('n', '<Tab>', [[>>]], OPTS)
@@ -57,17 +57,14 @@ vim.keymap.set('v', '<S-Down>', [[<Down>]], OPTS)
 vim.keymap.set('v', '<S-Left>', [[<Left>]], OPTS)
 vim.keymap.set('v', '<S-Right>', [[<Right>]], OPTS)
 
--- 全选
-vim.keymap.set('n', '<leader>a', [[gg0vG$]], OPTS)
-
 -- 撤销和重做
 vim.keymap.set('n', '<C-z>', [[u]], OPTS)
 vim.keymap.set('i', '<C-z>', [[<C-o>u]], OPTS)
 vim.keymap.set('i', '<C-r>', [[<C-o><C-r>]], OPTS)
 
 -- 复制粘贴
-vim.keymap.set('n', '<C-v>', [["+p]], OPTS)
-vim.keymap.set('i', '<C-v>', [[<C-o>"+p]], OPTS)
+vim.keymap.set('n', '<C-v>', [["+P]], OPTS)
+vim.keymap.set('i', '<C-v>', [[<C-o>"+P]], OPTS)
 vim.keymap.set('v', '<C-c>', [["+y]], OPTS)
 vim.keymap.set('v', '<C-x>', [["+x]], OPTS)
 
