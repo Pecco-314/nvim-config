@@ -5,6 +5,10 @@ vim.keymap.set('n', '<M-h>', [[<Cmd>wincmd h<CR>]], OPTS)
 vim.keymap.set('n', '<M-j>', [[<Cmd>wincmd j<CR>]], OPTS)
 vim.keymap.set('n', '<M-k>', [[<Cmd>wincmd k<CR>]], OPTS)
 vim.keymap.set('n', '<M-l>', [[<Cmd>wincmd l<CR>]], OPTS)
+vim.keymap.set('t', '<M-h>', [[<Cmd>wincmd h<CR>]], OPTS)
+vim.keymap.set('t', '<M-j>', [[<Cmd>wincmd j<CR>]], OPTS)
+vim.keymap.set('t', '<M-k>', [[<Cmd>wincmd k<CR>]], OPTS)
+vim.keymap.set('t', '<M-l>', [[<Cmd>wincmd l<CR>]], OPTS)
 
 -- 退出窗口
 vim.keymap.set('n', '<leader>q', [[<Cmd>q<CR>]], OPTS)
@@ -27,13 +31,6 @@ vim.keymap.set('v', '<C-s>', [[<Cmd>update<CR><esc>]], OPTS)
 
 -- 关闭搜索高亮
 vim.keymap.set('n', '<leader>n', [[<Cmd>nohlsearch<CR>]], OPTS)
-
--- 终端相关
-vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], OPTS)
-vim.keymap.set('t', '<M-h>', [[<Cmd>wincmd h<CR>]], OPTS)
-vim.keymap.set('t', '<M-j>', [[<Cmd>wincmd j<CR>]], OPTS)
-vim.keymap.set('t', '<M-k>', [[<Cmd>wincmd k<CR>]], OPTS)
-vim.keymap.set('t', '<M-l>', [[<Cmd>wincmd l<CR>]], OPTS)
 
 -- tab缩进
 vim.keymap.set('n', '<Tab>', [[>>]], OPTS)
