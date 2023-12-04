@@ -1,6 +1,7 @@
 return {
     {
         "williamboman/mason-lspconfig.nvim",
+        event = "VeryLazy",
         dependencies = {
             "neovim/nvim-lspconfig",
             "williamboman/mason.nvim"
@@ -13,6 +14,7 @@ return {
                     "rust_analyzer",
                     "bashls",
                     "lua_ls",
+                    "texlab"
                 }
             })
             local lspconfig = require("lspconfig")
