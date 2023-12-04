@@ -10,9 +10,15 @@ vim.keymap.set('n', '<M-l>', [[<Cmd>wincmd l<CR>]], OPTS)
 vim.keymap.set('n', '<leader>q', [[<Cmd>q<CR>]], OPTS)
 vim.keymap.set('n', '<leader>Q', [[<Cmd>qa<CR>]], OPTS)
 
--- 快速翻页
+-- 快速滚屏
 vim.keymap.set('n', '<PageUp>', [[<C-U>]], OPTS)
 vim.keymap.set('n', '<PageDown>', [[<C-D>]], OPTS)
+vim.keymap.set('n', '<S-PageUp>', [[zH]], OPTS)
+vim.keymap.set('n', '<S-PageDown>', [[zL]], OPTS)
+vim.keymap.set('i', '<PageUp>', [[<C-O><C-U>]], OPTS)
+vim.keymap.set('i', '<PageDown>', [[<C-O><C-D>]], OPTS)
+vim.keymap.set('i', '<S-PageUp>', [[<C-O>zH]], OPTS)
+vim.keymap.set('i', '<S-PageDown>', [[<C-O>zL]], OPTS)
 
 -- 保存文件并进入普通模式
 vim.keymap.set('n', '<C-s>', [[<Cmd>update<CR>]], OPTS)

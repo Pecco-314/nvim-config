@@ -26,6 +26,7 @@ vim.opt.cursorline = true
 
 -- 让光标和屏幕保持一定距离
 vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 10
 
 -- 设置leader
 vim.g.mapleader = " "
