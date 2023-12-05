@@ -1,4 +1,5 @@
-OPTS = {silent = true, remap = true}
+OPTS = {silent = true, remap = false}
+OPTS_REMAP = {silent = true, remap = true}
 
 -- 切换窗口
 vim.keymap.set('n', '<M-h>', [[<Cmd>wincmd h<CR>]], OPTS)
@@ -15,12 +16,12 @@ vim.keymap.set('n', '<leader>q', [[<Cmd>q<CR>]], OPTS)
 vim.keymap.set('n', '<leader>Q', [[<Cmd>qa<CR>]], OPTS)
 
 -- 快速滚屏
-vim.keymap.set('n', '<PageUp>', [[<C-U>]], OPTS)
-vim.keymap.set('n', '<PageDown>', [[<C-D>]], OPTS)
+vim.keymap.set('n', '<PageUp>', [[<C-U>]], OPTS_REMAP)
+vim.keymap.set('n', '<PageDown>', [[<C-D>]], OPTS_REMAP)
+vim.keymap.set('i', '<PageUp>', [[<C-O><C-U>]], OPTS_REMAP)
+vim.keymap.set('i', '<PageDown>', [[<C-O><C-D>]], OPTS_REMAP)
 vim.keymap.set('n', '<S-PageUp>', [[zH]], OPTS)
 vim.keymap.set('n', '<S-PageDown>', [[zL]], OPTS)
-vim.keymap.set('i', '<PageUp>', [[<C-O><C-U>]], OPTS)
-vim.keymap.set('i', '<PageDown>', [[<C-O><C-D>]], OPTS)
 vim.keymap.set('i', '<S-PageUp>', [[<C-O>zH]], OPTS)
 vim.keymap.set('i', '<S-PageDown>', [[<C-O>zL]], OPTS)
 
@@ -39,9 +40,9 @@ vim.keymap.set('v', '<Tab>', [[>gv]], OPTS)
 vim.keymap.set('v', '<S-Tab>', [[<gv]], OPTS)
 
 -- ctrl+/注释
-vim.keymap.set('n', '<C-_>', [[gcc]], OPTS)
-vim.keymap.set('i', '<C-_>', [[<C-o>gcc]], OPTS)
-vim.keymap.set('v', '<C-_>', [[gc]], OPTS)
+vim.keymap.set('n', '<C-_>', [[gcc]], OPTS_REMAP)
+vim.keymap.set('i', '<C-_>', [[<C-o>gcc]], OPTS_REMAP)
+vim.keymap.set('v', '<C-_>', [[gc]], OPTS_REMAP)
 
 -- shift+方向键选中区域
 vim.keymap.set('n', '<S-Up>', [[v<Up>]], OPTS)
@@ -58,9 +59,10 @@ vim.keymap.set('v', '<S-Left>', [[<Left>]], OPTS)
 vim.keymap.set('v', '<S-Right>', [[<Right>]], OPTS)
 
 -- 撤销和重做
-vim.keymap.set('n', '<C-z>', [[u]], OPTS)
-vim.keymap.set('i', '<C-z>', [[<C-o>u]], OPTS)
-vim.keymap.set('i', '<C-r>', [[<C-o><C-r>]], OPTS)
+vim.keymap.set('n', '<C-z>', [[<Cmd>undo<CR>]], OPTS)
+vim.keymap.set('i', '<C-z>', [[<Cmd>undo<CR>]], OPTS)
+vim.keymap.set('n', '<C-y>', [[<Cmd>redo<CR>]], OPTS)
+vim.keymap.set('i', '<C-y>', [[<Cmd>redo<CR>]], OPTS)
 
 -- 复制粘贴
 vim.keymap.set('n', '<C-v>', [["+P]], OPTS)
@@ -69,4 +71,14 @@ vim.keymap.set('v', '<C-c>', [["+y]], OPTS)
 vim.keymap.set('v', '<C-x>', [["+x]], OPTS)
 
 -- 删除单词
-vim.keymap.set('i', '<C-h>', [[<C-o>db]], OPTS)
+vim.keymap.set('i', '<c-h>', [[<C-o>db]], OPTS)
+
+-- 交换行或块
+vim.keymap.set('n', '<C-Down>', [[:m .+1<CR>]], OPTS)
+vim.keymap.set('n', '<C-Up>', [[:m .-2<CR>]], OPTS)
+vim.keymap.set('v', '<C-Down>', [[:m '>+1<CR>gv]], OPTS)
+vim.keymap.set('v', '<C-Up>', [[:m '<-2<CR>gv]], OPTS)
+
+-- 分割窗口
+vim.keymap.set('n', '<leader>s', [[<Cmd>vsplit<CR>]], OPTS)
+vim.keymap.set('n', '<leader>S', [[<Cmd>split<CR>]], OPTS)
