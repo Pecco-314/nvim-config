@@ -4,7 +4,8 @@ return {
         event = "VeryLazy",
         dependencies = {
             "nvim-lua/plenary.nvim",
-            "folke/noice.nvim"
+            "folke/noice.nvim",
+            "folke/todo-comments.nvim"
         },
         config = function()
             require("telescope")
@@ -16,7 +17,9 @@ return {
             vim.keymap.set("n", "<leader>gb", [[<Cmd>Telescope buffers<CR>]], OPTS)
             vim.keymap.set("n", "<leader>gg", [[<Cmd>Telescope git_status<CR>]], OPTS)
             vim.keymap.set("n", "<leader>gc", [[<Cmd>Telescope git_commits<CR>]], OPTS)
-            vim.keymap.set("n", "<leader>gr", [[<Cmd>Telescope registers<CR>]], OPTS)
+            vim.keymap.set("n", "<leader>gR", [[<Cmd>Telescope registers<CR>]], OPTS)
+            vim.keymap.set("n", "<leader>gr", [[<Cmd>Telescope lsp_references<CR>]], OPTS)
+            vim.keymap.set("n", "<leader>gt", [[<Cmd>TodoTelescope<CR>]], OPTS)
         end,
     }
 }
