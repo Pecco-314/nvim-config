@@ -10,7 +10,8 @@ return {
             require("auto-session").setup {
                 log_level = "error",
                 auto_session_suppress_dirs = { "~/", "/" },
-                post_restore_cmds = { change_nvim_tree_dir, "NvimTreeOpen" }, --todo: 自动关闭和开启终端
+                 -- TODO: 自动关闭和开启终端
+                post_restore_cmds = { change_nvim_tree_dir, "NvimTreeOpen" },
                 pre_save_cmds = { "NvimTreeClose" },
             }
         end
