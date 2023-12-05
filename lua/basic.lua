@@ -28,5 +28,8 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 10
 
+-- 使用真彩色
+vim.opt.termguicolors = true
+
 -- 设置leader
 vim.g.mapleader = " "
