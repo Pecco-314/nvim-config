@@ -65,10 +65,10 @@ vim.keymap.set('n', '<C-y>', [[<Cmd>redo<CR>]], OPTS)
 vim.keymap.set('i', '<C-y>', [[<Cmd>redo<CR>]], OPTS)
 
 -- 复制粘贴
-vim.keymap.set('n', '<C-v>', [["+P]], OPTS)
-vim.keymap.set('i', '<C-v>', [[<C-o>"+P]], OPTS)
-vim.keymap.set('v', '<C-c>', [["+y]], OPTS)
-vim.keymap.set('v', '<C-x>', [["+x]], OPTS)
+vim.keymap.set('n', '<C-v>', [[""P]], OPTS)
+vim.keymap.set('i', '<C-v>', [[<C-o>""P]], OPTS)
+vim.keymap.set('v', '<C-c>', [[""y]], OPTS)
+vim.keymap.set('v', '<C-x>', [[""x]], OPTS)
 
 -- 删除单词
 vim.keymap.set('i', '<c-h>', [[<C-o>db]], OPTS)
