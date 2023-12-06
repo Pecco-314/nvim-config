@@ -28,6 +28,9 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.sidescrolloff = 10
 
+-- 自动切换工作目录
+vim.opt.autochdir = true
+
 -- 使用真彩色
 vim.opt.termguicolors = true
 
