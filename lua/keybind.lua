@@ -70,14 +70,10 @@ vim.keymap.set('v', '<C-x>', [[""x]], OPTS)
 vim.keymap.set('i', '<c-h>', [[<C-o>db]], OPTS)
 
 -- 交换行或块
-vim.keymap.set('n', '<C-j>', [[:m .+1<CR>]], OPTS)
-vim.keymap.set('n', '<C-Down>', [[:m .+1<CR>]], OPTS)
-vim.keymap.set('n', '<C-k>', [[:m .-2<CR>]], OPTS)
-vim.keymap.set('n', '<C-Up>', [[:m .-2<CR>]], OPTS)
-vim.keymap.set('v', '<C-j>', [[:m '>+1<CR>gv]], OPTS)
-vim.keymap.set('v', '<C-Down>', [[:m '>+1<CR>gv]], OPTS)
-vim.keymap.set('v', '<C-k>', [[:m '<-2<CR>gv]], OPTS)
-vim.keymap.set('v', '<C-Up>', [[:m '<-2<CR>gv]], OPTS)
+vim.keymap.set('n', '<M-Down>', [[:m .+1<CR>]], OPTS)
+vim.keymap.set('n', '<M-Up>', [[:m .-2<CR>]], OPTS)
+vim.keymap.set('v', '<M-Down>', [[:m '>+1<CR>gv]], OPTS)
+vim.keymap.set('v', '<M-Up>', [[:m '<-2<CR>gv]], OPTS)
 
 -- 分割窗口
 vim.keymap.set('n', '<leader>s', [[<Cmd>vsplit<CR>]], OPTS)
