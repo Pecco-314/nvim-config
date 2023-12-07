@@ -25,10 +25,8 @@ vim.keymap.set('n', '<S-PageDown>', [[zL]], OPTS)
 vim.keymap.set('i', '<S-PageUp>', [[<C-O>zH]], OPTS)
 vim.keymap.set('i', '<S-PageDown>', [[<C-O>zL]], OPTS)
 
--- 保存文件并进入普通模式
-vim.keymap.set('n', '<C-s>', [[<Cmd>update<CR>]], OPTS)
-vim.keymap.set('i', '<C-s>', [[<Cmd>update<CR><esc>]], OPTS)
-vim.keymap.set('v', '<C-s>', [[<Cmd>update<CR><esc>]], OPTS)
+-- 关闭缓冲区
+vim.keymap.set('n', '<C-w>', [[<Cmd>bd<CR>]], OPTS)
 
 -- 关闭搜索高亮
 vim.keymap.set('n', '<Backspace>', [[<Cmd>nohlsearch<CR>]], OPTS)
@@ -84,3 +82,21 @@ vim.keymap.set('v', '<C-Up>', [[:m '<-2<CR>gv]], OPTS)
 -- 分割窗口
 vim.keymap.set('n', '<leader>s', [[<Cmd>vsplit<CR>]], OPTS)
 vim.keymap.set('n', '<leader>S', [[<Cmd>split<CR>]], OPTS)
+
+-- 保存文件，如果为空则输入文件名
+function _G.save_file()
+    if vim.fn.expand('%') == '' then
+        local filename = vim.fn.input('Enter filename: ', vim.fn.expand('%:p:h') .. '/', 'file')
+        print(filename)
+        vim.cmd('write ' .. filename)
+    else
+        vim.cmd('update')
+    end
+    vim.cmd('stopinsert')
+end
+vim.keymap.set('n', '<C-s>', save_file, OPTS)
+vim.keymap.set('i', '<C-s>', save_file, OPTS)
+vim.keymap.set('v', '<C-s>', save_file, OPTS)
+
+-- 新建文件
+vim.keymap.set('n', '<C-n>', [[<Cmd>enew<CR>]], OPTS)
