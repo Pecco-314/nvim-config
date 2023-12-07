@@ -2,7 +2,6 @@ local M = {}
 
 function M.operator(funcname)
     vim.go.operatorfunc = "v:lua." .. funcname
-    print(vim.g.operatorfunc)
     return 'g@'
 end
 

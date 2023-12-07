@@ -83,7 +83,6 @@ vim.keymap.set('n', '<leader>S', [[<Cmd>split<CR>]], OPTS)
 function _G.save_file()
     if vim.fn.expand('%') == '' then
         local filename = vim.fn.input('Enter filename: ', vim.fn.expand('%:p:h') .. '/', 'file')
-        print(filename)
         vim.cmd('write ' .. filename)
     else
         vim.cmd('update')
