@@ -34,8 +34,6 @@ vim.keymap.set('v', '<C-s>', [[<Cmd>update<CR><esc>]], OPTS)
 vim.keymap.set('n', '<Backspace>', [[<Cmd>nohlsearch<CR>]], OPTS)
 
 -- tab缩进
-vim.keymap.set('n', '<Tab>', [[>>]], OPTS)
-vim.keymap.set('n', '<S-Tab>', [[<<]], OPTS)
 vim.keymap.set('v', '<Tab>', [[>gv]], OPTS)
 vim.keymap.set('v', '<S-Tab>', [[<gv]], OPTS)
 

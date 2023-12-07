@@ -12,15 +12,15 @@ return {
             local bt = require("telescope.builtin")
             local ext = telescope.extensions
 
-            local function find_another_file()
-                local path = vim.fn.input('Enter a path: ', vim.fn.getcwd(), 'dir')
-                bt.find_files({ cwd = path })
+            local function inputpath()
+                return vim.fn.input('Enter a path: ', vim.fn.getcwd(), 'dir')
             end
 
             vim.keymap.set("n", "<M-p>", function() bt.find_files({ cwd = vim.fn.getcwd() }) end, OPTS)
             vim.keymap.set("n", "<C-M-p>", bt.live_grep, OPTS)
             vim.keymap.set("n", "<F1>", bt.help_tags, OPTS)
-            vim.keymap.set("n", "<leader>gf", find_another_file, OPTS)
+            vim.keymap.set("n", "<M-l>", function () bt.find_files({ cwd = inputpath() })end, OPTS)
+            vim.keymap.set("n", "<C-M-l>", function () bt.live_grep({ cwd = inputpath() })end, OPTS)
             vim.keymap.set("n", "<leader>gk", bt.keymaps, OPTS)
             vim.keymap.set("n", "<leader>gh", bt.highlights, OPTS)
             vim.keymap.set("n", "<leader>g'", bt.registers, OPTS)
