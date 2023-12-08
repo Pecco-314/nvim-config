@@ -25,10 +25,13 @@ function M.tolist(text)
     return list
 end
 
-function M.popup(text)
+function M.popup(opts)
     local Popup = require("nui.popup")
     local event = require("nui.utils.autocmd").event
-    text = text or ""
+
+    opts = opts or {}
+    local text = opts.text
+    local bufnr = opts.bufnr
 
     local popup = Popup({
         enter = true,
@@ -39,8 +42,9 @@ function M.popup(text)
         position = "50%",
         size = {
             width = "80%",
-            height = "60%",
+            height = "80%",
         },
+        bufnr = bufnr,
     })
 
     popup:mount()
@@ -49,7 +53,16 @@ function M.popup(text)
         popup:unmount()
     end)
 
-    vim.api.nvim_buf_set_lines(popup.bufnr, 0, -1, false, M.split(text, "\n"))
+    popup:map("n", "q", function()
+        popup:unmount()
+    end)
+    popup:map("n", "<Esc>", function()
+        popup:unmount()
+    end)
+
+    if text ~= nil then
+        vim.api.nvim_buf_set_lines(popup.bufnr, 0, -1, false, M.split(text, "\n"))
+    end
 
     return popup.bufnr
 end

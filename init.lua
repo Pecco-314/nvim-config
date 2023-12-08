@@ -1,4 +1,5 @@
 require("basic")
+require("autocmd")
 require("keybind")
 require("operator")
 require("lazy-init")

@@ -79,7 +79,7 @@ function M.telescope(opts)
                         end
 
                         action.close(prompt_bufnr)
-                        util.popup(selection.message:content())
+                        util.popup({text = selection.message:content()})
                     end
                 )
                 return true
