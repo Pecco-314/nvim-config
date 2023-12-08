@@ -7,8 +7,11 @@ local pickers = require("telescope.pickers")
 local finders = require("telescope.finders")
 local conf = require("telescope.config").values
 local previewers = require("telescope.previewers")
+local action = require("telescope.actions")
 local action_set = require("telescope.actions.set")
 local action_state = require("telescope.actions.state")
+
+local util = require("util")
 
 local M = {}
 
@@ -67,25 +70,18 @@ function M.telescope(opts)
             finder = M.finder(),
             sorter = conf.generic_sorter(opts),
             previewer = M.previewer(),
-            attach_mappings = function()
-                action_set.select:enhance {
-                    post = function()
+            attach_mappings = function(prompt_bufnr)
+                action_set.select:replace(
+                    function()
                         local selection = action_state.get_selected_entry()
                         if not selection then
                             return
                         end
-                        local content = Format.format(selection.message, "telescope_preview"):content()
-                        local temp_path = vim.fn.tempname()
-                        local temp_file = io.open(temp_path, "w")
-                        if temp_file then
-                            temp_file:write(content)
-                            temp_file:close()
-                            vim.cmd('edit! ' .. temp_path)
-                        else
-                            error("Unable to create temp file")
-                        end
-                    end,
-                }
+
+                        action.close(prompt_bufnr)
+                        util.popup(selection.message:content())
+                    end
+                )
                 return true
             end,
         })
