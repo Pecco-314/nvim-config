@@ -20,8 +20,13 @@ end
 function _G.loadSession()
     if vim.fn.argc() == 0 then
         vim.g.initialCwd = vim.fn.getcwd()
-        vim.cmd('source ' .. sessionFile())
-        vim.cmd('doautocmd BufRead')
+        local f = sessionFile()
+        if vim.fn.filereadable(f) == 1 then
+            vim.cmd('source ' .. f)
+            vim.cmd('doautocmd BufRead')
+        else
+            require("nvim-tree.api").tree.focus()
+        end
     end
 end
 
