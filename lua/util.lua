@@ -56,9 +56,6 @@ function M.popup(opts)
     popup:map("n", "q", function()
         popup:unmount()
     end)
-    popup:map("n", "<Esc>", function()
-        popup:unmount()
-    end)
 
     if text ~= nil then
         vim.api.nvim_buf_set_lines(popup.bufnr, 0, -1, false, M.split(text, "\n"))

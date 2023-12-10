@@ -11,10 +11,6 @@ vim.keymap.set('t', '<M-j>', [[<Cmd>wincmd j<CR>]], OPTS)
 vim.keymap.set('t', '<M-k>', [[<Cmd>wincmd k<CR>]], OPTS)
 vim.keymap.set('t', '<M-l>', [[<Cmd>wincmd l<CR>]], OPTS)
 
--- 退出窗口
-vim.keymap.set('n', '<leader>q', [[<Cmd>q<CR>]], OPTS)
-vim.keymap.set('n', '<leader>Q', [[<Cmd>qa<CR>]], OPTS)
-
 -- 快速滚屏
 vim.keymap.set('n', '<PageUp>', [[<C-U>]], OPTS_REMAP)
 vim.keymap.set('n', '<PageDown>', [[<C-D>]], OPTS_REMAP)
@@ -95,3 +91,20 @@ vim.keymap.set('v', '<C-s>', save_file, OPTS)
 
 -- 新建文件
 vim.keymap.set('n', '<C-n>', [[<Cmd>enew<CR>]], OPTS)
+
+-- 退出窗口
+_G.escPressed = false
+function _G.triggerEsc()
+    vim.fn.feedkeys(vim.api.nvim_replace_termcodes('<Esc>', true, false, true), 'n')
+    if not _G.escPressed then
+        _G.escPressed = true
+        vim.defer_fn(function()
+            _G.escPressed = false
+        end, vim.opt.timeoutlen:get())
+    else
+        vim.cmd("q")
+        _G.escPressed = false
+    end
+end
+vim.keymap.set({ 'i', 'v', 'n', 't' }, '<Esc>', triggerEsc, OPTS)
+vim.keymap.set('n', '<M-q>', [[<Cmd>qa<CR>]], OPTS)
