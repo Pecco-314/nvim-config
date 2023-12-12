@@ -14,7 +14,8 @@ return {
                     "rust_analyzer",
                     "bashls",
                     "lua_ls",
-                    "texlab"
+                    "texlab",
+                    "marksman",
                 }
             })
             local lspconfig = require("lspconfig")
