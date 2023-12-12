@@ -36,3 +36,6 @@ vim.opt.termguicolors = true
 
 -- 设置leader
 vim.g.mapleader = " "
+
+-- 使用最新的RE引擎
+vim.opt.regexpengine = 2
