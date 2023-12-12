@@ -75,6 +75,9 @@ vim.keymap.set('v', '<M-Up>', [[:m '<-2<CR>gv]], OPTS)
 vim.keymap.set('n', '<leader>s', [[<Cmd>vsplit<CR>]], OPTS)
 vim.keymap.set('n', '<leader>S', [[<Cmd>split<CR>]], OPTS)
 
+-- 重新读取Buffer
+vim.keymap.set('n', '<F5>', [[<Cmd>doautocmd BufRead<CR>]], OPTS)
+
 -- 保存文件，如果为空则输入文件名
 function _G.save_file()
     if vim.fn.expand('%') == '' then
