@@ -24,6 +24,7 @@ function _G.loadSession()
         if vim.fn.filereadable(f) == 1 then
             vim.cmd('source ' .. f)
             vim.cmd('doautocmd BufRead')
+            vim.cmd('cd ' .. vim.fn.expand('%:p:h'))
         else
             require("nvim-tree.api").tree.focus()
         end
