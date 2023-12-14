@@ -17,8 +17,8 @@ return {
             vim.keymap.set("n", "<leader>hb", gs.blame_line, OPTS)
             vim.keymap.set('n', '<leader>hd', gs.diffthis, OPTS)
             vim.keymap.set('n', '<leader>hD', function() gs.diffthis('~') end, OPTS)
-            vim.keymap.set('n', '<leader>h]', function() gs.next_hunk {wrap = false} end, OPTS)
-            vim.keymap.set('n', '<leader>h[', function() gs.prev_hunk {wrap = false} end, OPTS)
+            vim.keymap.set('n', ']h', function() gs.prev_hunk {wrap = false} end, OPTS)
+            vim.keymap.set('n', '[h', function() gs.next_hunk {wrap = false} end, OPTS)
             vim.keymap.set({'v', 'o'}, 'ih', gs.select_hunk, OPTS)
         end,
     }
