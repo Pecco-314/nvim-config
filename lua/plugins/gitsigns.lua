@@ -19,6 +19,7 @@ return {
             vim.keymap.set('n', '<leader>hD', function() gs.diffthis('~') end, OPTS)
             vim.keymap.set('n', '<leader>h]', function() gs.next_hunk {wrap = false} end, OPTS)
             vim.keymap.set('n', '<leader>h[', function() gs.prev_hunk {wrap = false} end, OPTS)
+            vim.keymap.set({'v', 'o'}, 'ih', gs.select_hunk, OPTS)
         end,
     }
 }
