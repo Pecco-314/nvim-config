@@ -33,7 +33,7 @@ return {
                         goto_previous_start = {
                             ["[m"] = "@function.outer",
                             ["[["] = "@class.outer",
-                            ["[,"] = "@parameter.outer",
+                            ["[,"] = "@parameter.inner",
                             ["[;"] = "@statement.outer",
                             ["[b"] = "@block.outer",
                             ["[?"] = "@conditional.outer",
@@ -43,7 +43,7 @@ return {
                         goto_next_start = {
                             ["]m"] = "@function.outer",
                             ["]]"] = "@class.outer",
-                            ["],"] = "@parameter.outer",
+                            ["],"] = "@parameter.inner",
                             ["];"] = "@statement.outer",
                             ["]b"] = "@block.outer",
                             ["]?"] = "@conditional.outer",
@@ -56,4 +56,5 @@ return {
         end
     }
 }
+
 
