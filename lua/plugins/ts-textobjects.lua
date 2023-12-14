@@ -17,6 +17,14 @@ return {
                             ["i,"] = "@parameter.inner",
                             ["a;"] = "@statement.outer",
                             ["i;"] = "@statement.inner",
+                            ["ab"] = "@block.outer",
+                            ["ib"] = "@block.inner",
+                            ["a?"] = "@conditional.outer",
+                            ["i?"] = "@conditional.inner",
+                            ["a!"] = "@loop.outer",
+                            ["i!"] = "@loop.inner",
+                            ["a/"] = "@comment.outer",
+                            ["i/"] = "@comment.inner",
                         }
                     },
                     move = {
