@@ -29,6 +29,27 @@ return {
                     },
                     move = {
                         enable = true,
+                        set_jumps = true,
+                        goto_previous_start = {
+                            ["[m"] = "@function.outer",
+                            ["[["] = "@class.outer",
+                            ["[,"] = "@parameter.outer",
+                            ["[;"] = "@statement.outer",
+                            ["[b"] = "@block.outer",
+                            ["[?"] = "@conditional.outer",
+                            ["[!"] = "@loop.outer",
+                            ["[/"] = "@comment.outer",
+                        },
+                        goto_next_start = {
+                            ["]m"] = "@function.outer",
+                            ["]]"] = "@class.outer",
+                            ["],"] = "@parameter.outer",
+                            ["];"] = "@statement.outer",
+                            ["]b"] = "@block.outer",
+                            ["]?"] = "@conditional.outer",
+                            ["]!"] = "@loop.outer",
+                            ["]/"] = "@comment.outer",
+                        },
                     },
                 }
             })
