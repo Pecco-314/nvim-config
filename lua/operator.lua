@@ -4,23 +4,25 @@ local function substitude(opts)
     opts = opts or {}
     local reg = opts.reg or '"'
     local mode = opts.mode or 'n'
-    local start, finish
+    local start, finish, endlinelen
     if mode == 'n' then
         start = vim.api.nvim_buf_get_mark(0, '[')
         finish = vim.api.nvim_buf_get_mark(0, ']')
+        endlinelen = #vim.fn.getline(vim.fn.line("']"))
     elseif mode == 'v' or mode == 'V' then
         start = vim.api.nvim_buf_get_mark(0, '<')
         finish = vim.api.nvim_buf_get_mark(0, '>')
+        endlinelen = #vim.fn.getline(vim.fn.line("'>"))
         if mode == 'V' then
             start[2] = 0
-            finish[2] = vim.fn.col('$') - 1
+            finish[2] = endlinelen
         end
     else
         vim.notify('cannot substitude in mode ' .. mode, vim.log.levels.WARN)
         return
     end
-    if finish[2] == vim.fn.col('$') - 1 then
-        finish[2] = finish[2] - 1
+    if finish[2] >= endlinelen then
+        finish[2] = endlinelen - 1
     end
     if start[1] > finish[1] then -- textobj-line选中空行时会出现这种情况
         finish[1] = start[1]
