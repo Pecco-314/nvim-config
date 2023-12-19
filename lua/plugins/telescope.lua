@@ -47,6 +47,7 @@ return {
             vim.keymap.set("n", "<C-M-s>", bt.lsp_dynamic_workspace_symbols, OPTS)
             vim.keymap.set("n", "<F4>", ext["todo-comments"].todo, OPTS)
             vim.keymap.set("n", "<F12>", ext["my_noice"].noice, OPTS)
+            vim.keymap.set("n", "<leader>gn", ext["my_noice"].noice, OPTS)
         end,
     }
 }
