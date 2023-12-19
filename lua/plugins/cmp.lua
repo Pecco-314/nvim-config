@@ -15,13 +15,6 @@ return {
         config = function()
             local lspkind = require('lspkind')
             local cmp = require('cmp')
-            local has_words_before = function()
-                if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
-                local cursor = vim.api.nvim_win_get_cursor(0)
-                local line = cursor[1]
-                local col = cursor[2]
-                return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
-            end
             cmp.setup({
                 snippet = {
                     expand = function(args)
@@ -31,19 +24,20 @@ return {
                 mapping = {
                     ["<CR>"] = cmp.mapping.confirm({ select = true }),
                     ["<Tab>"] = vim.schedule_wrap(function(fallback)
-                        if cmp.visible() and has_words_before() then
+                        if cmp.visible() then
                             cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
                         else
                             fallback()
                         end
                     end),
                     ["<S-Tab>"] = vim.schedule_wrap(function(fallback)
-                        if cmp.visible() and has_words_before() then
+                        if cmp.visible() then
                             cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
                         else
                             fallback()
                         end
                     end),
+                    ["<C-e>"] = cmp.mapping.close(),
                 },
                 sources = {
                     { name = "copilot" },
