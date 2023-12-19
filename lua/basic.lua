@@ -39,3 +39,6 @@ vim.g.mapleader = " "
 
 -- 使用最新的RE引擎
 vim.opt.regexpengine = 2
+
+-- 设置conceal等级
+vim.opt.conceallevel = 2
