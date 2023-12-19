@@ -26,7 +26,7 @@ return {
             })
             vim.keymap.set("n", "<M-r>", ":TSPlaygroundToggle<CR>", OPTS)
             vim.keymap.set("n", "J", ":TSHighlightCapturesUnderCursor<CR>", OPTS)
-            vim.keymap.set("n", ";", ":TSNodeUnderCursor<CR>", OPTS)
+            vim.keymap.set("n", "Y", ":TSNodeUnderCursor<CR>", OPTS)
         end
     }
 }
