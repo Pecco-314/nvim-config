@@ -8,7 +8,6 @@ return {
                 respect_buf_cwd = true,
                 sync_root_with_cwd = true,
                 filters = {
-                    dotfiles = true,
                     custom = { ".git" }
                 },
                 actions = {
