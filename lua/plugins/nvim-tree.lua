@@ -8,7 +8,8 @@ return {
                 respect_buf_cwd = true,
                 sync_root_with_cwd = true,
                 filters = {
-                    custom = { ".git" }
+                    custom = { ".git" },
+                    exclude = { ".gitignore" },
                 },
                 actions = {
                     open_file = {
