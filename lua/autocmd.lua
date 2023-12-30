@@ -23,8 +23,10 @@ function _G.loadSession()
         local f = sessionFile()
         if vim.fn.filereadable(f) == 1 then
             vim.cmd('source ' .. f)
-            vim.cmd('doautocmd BufRead')
             vim.cmd('cd ' .. vim.fn.expand('%:p:h'))
+            vim.defer_fn(function()
+                vim.cmd('doautocmd BufRead')
+            end, 0)
         else
             require("nvim-tree.api").tree.focus()
         end
