@@ -16,6 +16,7 @@ return {
                     "lua_ls",
                     "texlab",
                     "marksman",
+                    "neocmake",
                 }
             })
             local lspconfig = require("lspconfig")
@@ -42,6 +43,17 @@ return {
                             "--query-driver=/usr/local/bin/clang",
                             "--all-scopes-completion",
                             "--completion-style=detailed",
+                        }
+                    }
+                end,
+                ["neocmake"] = function()
+                    lspconfig.neocmake.setup {
+                        capabilities = {
+                            workspace = {
+                                didChangeWatchedFiles = {
+                                    dynamicRegistration = true,
+                                },
+                            },
                         }
                     }
                 end
